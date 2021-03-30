@@ -53,26 +53,23 @@ public class MergeSort{
         } catch (FileNotFoundException e) {
             System.out.println(e);
         }
-
-        for(double num: inputFromFile){
-            System.out.println(num);
-        }
-
-        // //Decides the merge sort algorithm used
+    
+        double[] sortedArray;
+        //Decides the merge sort algorithm used
         System.out.println("\nWhich Algorithm do you want to be used?\nA - Merge Sort A\nB - Merge Sort B\nC - Merge Sort C\nD - Merge Sort D");
         String algorithm = scan.next();
         switch(algorithm){
             case "A":
-                mergeSortAlgorithms.mergeSortA();
+                sortedArray = mergeSortAlgorithms.mergeSortA(inputFromFile);
                 break;
             case "B":
-                mergeSortAlgorithms.mergeSortB();
+                sortedArray = mergeSortAlgorithms.mergeSortB();
                 break;
             case "C":
-                mergeSortAlgorithms.mergeSortC();
+                sortedArray = mergeSortAlgorithms.mergeSortC();
                 break;
             case "D":
-                mergeSortAlgorithms.mergeSortD();
+                sortedArray = mergeSortAlgorithms.mergeSortD();
                 break;
             default:
                 System.out.println(algorithm+" Invalid Input");
