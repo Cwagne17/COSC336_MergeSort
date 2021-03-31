@@ -70,7 +70,9 @@ public class MergeSort{
                 sortedArray = mergeSortAlgorithms.mergeSortB();
                 break;
             case "C":
-                sortedArray = mergeSortAlgorithms.mergeSortC();
+                timerStart = System.currentTimeMillis();
+                sortedArray = mergeSortAlgorithms.mergeSortC(inputFromFile);
+                timerEnd = System.currentTimeMillis();
                 break;
             case "D":
                 sortedArray = mergeSortAlgorithms.mergeSortD();
@@ -83,6 +85,7 @@ public class MergeSort{
         //Prints Array to check if it is correct
         boolean sortedCorrectly = true;
         for(int i=1; i<sortedArray.length; i++){
+            //System.out.println(sortedArray[i-1]);
             if(sortedArray[i-1]>sortedArray[i]){
                 sortedCorrectly=false;
             }

@@ -30,9 +30,16 @@ public class MergeSortAlgorithms {
     /**
      * Using recursive calls and INSERTION-SORT() as a sub-procedure.
      */
-    public double[] mergeSortC(){
-        System.out.println("Method not yet implemented.");
-        return null;
+    public double[] mergeSortC(double[] inputArray){
+        if(inputArray.length == 25){
+            return insertionSort(inputArray);
+        } else {
+            int middle= ((inputArray.length)/2);
+            double[] leftHalfArray = mergeSortA(Arrays.copyOfRange(inputArray, 0, middle));
+            double[] rightHalfArray = mergeSortA(Arrays.copyOfRange(inputArray, middle, inputArray.length));
+            double[] resultArray = merge(leftHalfArray, rightHalfArray);
+            return resultArray;
+        }
     }
 
     /**
@@ -70,7 +77,7 @@ public class MergeSortAlgorithms {
             mergedArray[k]=rightHalfArray[j];
             j++; k++;
         }
-        
+
         return mergedArray;
     }
 
