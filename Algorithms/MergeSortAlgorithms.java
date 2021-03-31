@@ -47,8 +47,31 @@ public class MergeSortAlgorithms {
      *  Helper function that merges two arrays together in sorted order
      */
     private double[] merge(double[] leftHalfArray, double[] rightHalfArray){
-        System.out.println("Method not yet implemented");
-        return null;
+        double[] mergedArray = new double[leftHalfArray.length+rightHalfArray.length];
+        int i=0; int j=0; int k=0;
+        //Checks which array to add a value to merged array while each list have elements left
+        while(i<leftHalfArray.length && j<rightHalfArray.length){
+            if(leftHalfArray[i]<rightHalfArray[j]){
+                mergedArray[k]=leftHalfArray[i];
+                i++;
+            } else {
+                mergedArray[k]=rightHalfArray[j];
+                j++;
+            }
+            k++;
+        }
+        
+        //One of these while loops will run adding remaining elements to mergred array
+        while(i<leftHalfArray.length) {
+            mergedArray[k]=leftHalfArray[i];
+            i++; k++;
+        }
+        while(j<rightHalfArray.length) {
+            mergedArray[k]=rightHalfArray[j];
+            j++; k++;
+        }
+        
+        return mergedArray;
     }
 
     /**

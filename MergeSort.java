@@ -54,13 +54,17 @@ public class MergeSort{
             System.out.println(e);
         }
     
-        double[] sortedArray;
+        double[] sortedArray = null;
+        //Variables needed for timer
+        long timerStart=0; long timerEnd=0; long timeElapsed;
         //Decides the merge sort algorithm used
         System.out.println("\nWhich Algorithm do you want to be used?\nA - Merge Sort A\nB - Merge Sort B\nC - Merge Sort C\nD - Merge Sort D");
         String algorithm = scan.next();
         switch(algorithm){
             case "A":
+                timerStart = System.currentTimeMillis();
                 sortedArray = mergeSortAlgorithms.mergeSortA(inputFromFile);
+                timerEnd = System.currentTimeMillis();
                 break;
             case "B":
                 sortedArray = mergeSortAlgorithms.mergeSortB();
@@ -74,7 +78,22 @@ public class MergeSort{
             default:
                 System.out.println(algorithm+" Invalid Input");
         }   
+    
+        timeElapsed = timerEnd - timerStart;
+        //Prints Array to check if it is correct
+        boolean sortedCorrectly = true;
+        for(int i=1; i<sortedArray.length; i++){
+            if(sortedArray[i-1]>sortedArray[i]){
+                sortedCorrectly=false;
+            }
+        }
 
+        System.out.println("\n\tSorting Results");
+        System.out.println("Status: "+sortedCorrectly);
+        System.out.println("Algorithm: Merge Sort "+algorithm);
+        System.out.println("Filename: "+inputFileName);
+        System.out.println("#Elements: "+sortedArray.length);
+        System.out.println("Time elapsed: "+timeElapsed+"ms");
         scan.close();
     }
 
