@@ -67,7 +67,9 @@ public class MergeSort{
                 timerEnd = System.currentTimeMillis();
                 break;
             case "B":
-                sortedArray = mergeSortAlgorithms.mergeSortB();
+                timerStart = System.currentTimeMillis();
+                sortedArray = mergeSortAlgorithms.mergeSortB(inputFromFile);
+                timerEnd = System.currentTimeMillis();
                 break;
             case "C":
                 timerStart = System.currentTimeMillis();
@@ -75,7 +77,9 @@ public class MergeSort{
                 timerEnd = System.currentTimeMillis();
                 break;
             case "D":
-                sortedArray = mergeSortAlgorithms.mergeSortD();
+                timerStart = System.currentTimeMillis();
+                sortedArray = mergeSortAlgorithms.mergeSortD(inputFromFile);
+                timerEnd = System.currentTimeMillis();
                 break;
             default:
                 System.out.println(algorithm+" Invalid Input");
